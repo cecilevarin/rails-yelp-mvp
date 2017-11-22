@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h1 class= "text-center">Liste des restaurants</h1>
+      <ul>
+        <% @restaurants.each do |restaurant| %>
+          <li>
+            <%= restaurant.name %> : <%= restaurant.address %>,
+            <%= restaurant.phone_number %>,
+            category: <%= restaurant.category %>,
+            rating :
+          </li>
+        <% end %>
+      </ul>
+      <div class="text-center">
+        <%= link_to "Add a new restaurant", restaurants_new_path, class:"btn btn-success"  %>
+      </div>
+    </div>
+  </div>
+</div>
