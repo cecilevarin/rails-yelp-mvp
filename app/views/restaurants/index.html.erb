@@ -5,15 +5,15 @@
       <ul>
         <% @restaurants.each do |restaurant| %>
           <li>
+            id:<%= restaurant.id %> -
             <%= restaurant.name %> : <%= restaurant.address %>,
-            <%= restaurant.phone_number %>,
-            category: <%= restaurant.category %>,
-            rating :
+            <%= restaurant.category %>,
+            <%= link_to "Voir les détails", restaurant_path(restaurant.id) %>
           </li>
         <% end %>
       </ul>
       <div class="text-center">
-        <%= link_to "Add a new restaurant", restaurants_new_path, class:"btn btn-success"  %>
+        <%= link_to "Add a new restaurant", new_restaurant_path, class:"btn btn-success"  %>
       </div>
     </div>
   </div>

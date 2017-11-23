@@ -1,2 +1,19 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h2><%= @restaurant.name %></h2>
+      <p><b>address:</b> <%= @restaurant.address %></p>
+      <p><b>phone_number:</b> <%= @restaurant.phone_number %></p>
+      <p><b>category:</b> <%= @restaurant.category %></p>
+
+    </div>
+  </div>
+
+  <%= render 'reviews/show', reviews: @restaurant.reviews %>
+  <%= simple_form_for(@review) do |f| %>
+    <%= f.input :rating %>
+    <%= f.submit %>
+  <% end %>
+  <%= link_to "Revenir à la liste", root_path, class: "btn btn-success" %>
+</div>
+

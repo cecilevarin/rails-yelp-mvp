@@ -1,0 +1,13 @@
+<ul class="list-group">
+  <% reviews.each do |review| %>
+  <li class="list-group-item">
+    <% 5.times do |i| %>
+      <% unless i < review.rating %>
+      <i class="fa fa-star"></i>
+      er <% else %>
+      <i class="fa fa-star-o"></i>
+    <% end %>
+    <% end %>
+  </li>
+  <% end %>
+</ul>

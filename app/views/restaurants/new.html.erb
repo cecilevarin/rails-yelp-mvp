@@ -1,2 +1,21 @@
-<h1>Restaurants#new</h1>
-<p>Find me in app/views/restaurants/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= simple_form_for @restaurant do |f| %>
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :phone_number %>
+        <%= f.input :category, collection: Restaurant::CATEGORIES %>
+        <div class="text-center">
+        <%= f.submit "create this restaurant", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+      <hr>
+      <div class="text-center">
+        <%= link_to "Revenir à la liste", root_path, class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
