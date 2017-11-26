@@ -1,4 +1,9 @@
 <div class="container">
+
+  <div class="text-right">
+  <%= link_to "Revenir à la liste", root_path, class: "btn btn-success"%>
+  </div>
+
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <h2><%= @restaurant.name %></h2>
@@ -9,11 +14,14 @@
     </div>
   </div>
 
-  <%= render 'reviews/show', reviews: @restaurant.reviews %>
-  <%= simple_form_for(@review) do |f| %>
-    <%= f.input :rating %>
-    <%= f.submit %>
-  <% end %>
-  <%= link_to "Revenir à la liste", root_path, class: "btn btn-success" %>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |r| %>
+      <%= render 'reviews/show', review: r %>
+    <% end %>
+    <hr>
+      <%= link_to "Laisser un commentaire", new_restaurant_review_path(@restaurant.id), class: "btn btn-success"%>
+  </ul>
+
+
 </div>
 
